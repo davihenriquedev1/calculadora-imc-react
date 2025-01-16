@@ -1,15 +1,21 @@
+"use client";   
 
-import { Level } from "@/types/Level"
+import { Level } from "@/types/Level";
 
 type Props = {
-   item: Level
+   item: Level;
 }
 
-export const GridItem = ({item}:Props) => {                
+export const GridItem = ({item}:Props) => {      
+
+    const iconSrc = item.icon === 'up' ? '/images/up.png' : '/images/down.png';
+    
+    const bgColor = item.color?? '#FFF'; // Default caso item.color não seja definido
+
     return (
-        <div className={`flex flex-col flex-1 rounded-md text-white justify-center items-center p-5`} style={{backgroundColor:item.color}}>
+        <div className={`flex flex-col flex-1 rounded-md text-white justify-center items-center p-5`} style={{backgroundColor:bgColor }}>
             <div className="flex justify-center items-center w-16 h-16 rounded-full bg-black/10">
-                <img src={item.icon === 'up'? '/images/up.png' : '/images/down.png'} className="w-7" title={item.icon}/>
+                <img src={iconSrc} alt={item.icon} className="w-7" title={item.icon}/>
             </div>
             <div className="text-lg font-bold mt-1">{item.title}</div>
             {item.yourImc && 

@@ -1,5 +1,5 @@
-import { Header } from "@/components/header";
-import ImcCalculator from "@/components/imc-calculator";
+import { Header } from "@/components/Header";
+import ImcCalculator from "@/components/ImcCalculator";
 
 export default function Home() {
 	return (
